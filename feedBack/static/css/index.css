@@ -1,0 +1,10 @@
+/* a{
+    text-decoration: none;
+} */
+
+.comments{
+    width: 600px;
+    min-height: 200px;
+    background: red;
+    overflow: hidden;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>post</title>
+</head>
+<body>
+    <!-- 
+        form 提交： 里面元素必须有 name 属性
+        表单提交分为：
+            1、默认提交 action(地址)  metod（提交方式）
+            2、表单异步提交
+     -->
+    <form action="/pinglun" method="get">
+        <div>
+            <label for="inp">名字：</label>
+            <input type="text" id="inp" name='name' required minlength="2" maxlength="10" >
+        </div>
+    
+        <div>
+            <label for="textarea_msg">留言内容：</label>
+            <textarea id="textarea_msg" name="message" required minlength="2" maxlength="40" cols="30" rows="10"></textarea>
+        </div>
+    
+        <button type="submit">发表</button>
+    </form>
+</body>
+</html>
