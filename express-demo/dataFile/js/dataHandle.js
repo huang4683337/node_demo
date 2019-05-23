@@ -5,7 +5,7 @@
 */
 const fs = require('fs');
 
-const dbPath = './db.json';
+const dbPath = './dataFile/json/db.json';
 
 
 /* 获取所有数据信息 */
@@ -14,7 +14,7 @@ exports.find = function (callback) {
         if (err) {
             return callback(err, null);
         }
-        callback(null, JSON.parse(data));
+        callback(null, JSON.parse(data)); //数据转为json格式的
     })
 }
 
@@ -25,15 +25,15 @@ exports.add = function(dataOne, callback){
         if(err){
             return callback(err, null);
         }
-        var data = JSON.parse(data).data;
+        var data = JSON.parse(data).data;  // 读取到的数据 数组
 
         dataOne.id = data.length;  // 新增数据ID
 
         data.unshift(dataOne); // 新的数据添加到 data.json 读取到的数据中
 
-        var dataStr = JSON.stringify({
+        var dataStr = JSON.stringify({  // 数据转为字符串后写入到文件中
             data: data
-        })
+        }) 
         fs.writeFile(dbPath, dataStr, (err)=>{
             if(err){
                 callback(err, null);

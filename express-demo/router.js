@@ -4,7 +4,7 @@ const express = require('express');
 // 创建一个路由容器
 var router = express.Router();
 
-var dataHandle = require('./dataHandle');
+var dataHandle = require('./dataFile/js/dataHandle');
 
 // 数据列表
 router.get('/', (req, res)=>{
