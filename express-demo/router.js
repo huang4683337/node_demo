@@ -12,6 +12,7 @@ router.get('/', (req, res)=>{
     dataHandle.find((err, data)=>{
        
         if(err){
+            console.log(err);
             return res.status(500).send('Server error')
         }
         res.render('index.html',{
@@ -31,6 +32,7 @@ router.get('/post', (req, res)=>{
 router.post('/add', (req, res)=>{
     dataHandle.add(req.body, (err, success)=>{
         if(err){
+            console.log(err);
             return res.status(500).send('Server error')
         }
         res.redirect('/');
