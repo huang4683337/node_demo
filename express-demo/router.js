@@ -1,28 +1,45 @@
 const express = require('express');
 
-var  data = [{ name: '迷你', cont:'我是阿道夫'}];
 
 // 创建一个路由容器
 var router = express.Router();
 
+var dataHandle = require('./dataHandle');
 
-
-// 路由挂在到容器中
+// 数据列表
 router.get('/', (req, res)=>{
-    res.render('index.html',{
-        dataList:data
+
+    dataHandle.find((err, data)=>{
+       
+        if(err){
+            return res.status(500).send('Server error')
+        }
+        res.render('index.html',{
+            dataList: data.data
+        })
+
     })
+
 })
- 
+
+// 发表页面
 router.get('/post', (req, res)=>{
     res.render('post.html');
 })
 
-
+// 添加信息
 router.post('/add', (req, res)=>{
-    data.unshift(req.body);
-    res.redirect('/')
+    dataHandle.add(req.body, (err, success)=>{
+        if(err){
+            return res.status(500).send('Server error')
+        }
+        res.redirect('/');
+    })
 })
+
+// 删除信息
+
+// 改变信息
 
 
 module.exports = router;

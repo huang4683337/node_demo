@@ -14,7 +14,11 @@
 <body>
     <ul>
         {{ each dataList}}
-        <li> {{ $value.name}} : {{ $value.cont }}</li>
+        <li> 
+            <span>{{ $value.name}} : {{ $value.cont }}</span>
+            <span><a href="">删除</a></span>
+            <span><a href="">修改</a></span>
+        </li>
         {{ /each }}
     </ul>
     <a href="/post">发表</a>
