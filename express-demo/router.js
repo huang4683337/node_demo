@@ -30,6 +30,7 @@ router.get('/post', (req, res)=>{
 
 // 添加信息
 router.post('/add', (req, res)=>{
+    console.log(req.body)
     dataHandle.add(req.body, (err, success)=>{
         if(err){
             console.log(err);
