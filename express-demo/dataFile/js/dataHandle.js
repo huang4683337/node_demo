@@ -10,7 +10,7 @@ const dbPath = './dataFile/json/db.json';
 
 /* 获取所有数据信息 */
 exports.find = function (callback) {
-    fs.readFile(dbPath, 'utf8', (err, data)=>{
+    fs.readFile(dbPath, 'utf8', (err, data) => {
         if (err) {
             return callback(err, null);
         }
@@ -19,10 +19,10 @@ exports.find = function (callback) {
 }
 
 // /* 添加数据 */
-exports.add = function(dataOne, callback){
-    fs.readFile(dbPath, 'utf8', (err, data)=>{
+exports.add = function (dataOne, callback) {
+    fs.readFile(dbPath, 'utf8', (err, data) => {
 
-        if(err){
+        if (err) {
             return callback(err, null);
         }
         var data = JSON.parse(data).data;  // 读取到的数据 数组
@@ -33,9 +33,9 @@ exports.add = function(dataOne, callback){
 
         var dataStr = JSON.stringify({  // 数据转为字符串后写入到文件中
             data: data
-        }) 
-        fs.writeFile(dbPath, dataStr, (err)=>{
-            if(err){
+        })
+        fs.writeFile(dbPath, dataStr, (err) => {
+            if (err) {
                 callback(err, null);
             }
             callback(); // 成功
@@ -44,16 +44,57 @@ exports.add = function(dataOne, callback){
 }
 
 // /* 删除数据 */
-// exports.delete = function(){
-
-// }
+exports.deleteData = function (id, callback) {
+    fs.readFile(dbPath, 'utf8', (err, data) => {
+        if (err) {
+            return callback(err);
+        }
+        let students = JSON.parse(data);
+        console.log(students);
+    })
+}
 
 // /* 修改数据 */
-// exports.change = function(){
+exports.updateById = function (infoData, callback) {
+    fs.readFile(dbPath, 'utf8', (err, data) => {
+        if (err) {
+            return callback(err);
+        }
 
-// }
+        data = JSON.parse(data); //将取出来的数据转为JSON
+        let dataList= data.data;
 
-// /* 获取某条数据 */
-// exports.byId = function(){
 
-// }
+        for(let key in dataList){
+            if(dataList[key].id === parseInt(infoData.id)){
+                dataList[key].name = infoData.name;
+                dataList[key].cont = infoData.cont;
+            }
+        }
+        data = JSON.stringify(data); // 将数据转为 string 用于文件存储
+        fs.writeFile(dbPath, data, (err)=>{
+            if(err){
+                return callback(err);
+            }
+            callback(null);
+        })
+    })
+}
+
+// /* 根据ID获取对应数据 */
+exports.getID = function(id, callback){
+    fs.readFile(dbPath, 'utf8', (err, data) => {
+        if (err) {
+            return callback(err);
+        }
+
+        data = JSON.parse(data);
+        let dataList = data.data;
+        var itemData = dataList.find((item)=>{
+            return item.id === id;
+        })
+
+        callback(itemData)
+        
+    })
+}

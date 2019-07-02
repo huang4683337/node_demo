@@ -16,8 +16,8 @@
         {{ each dataList}}
         <li> 
             <span>{{ $value.name}} : {{ $value.cont }}</span>
-            <span><a href="">删除</a></span>
-            <span><a href="">修改</a></span>
+            <span><a href="/delete?id={{$value.id}}">删除</a></span>
+            <span><a href="/upDate?id={{$value.id}}">修改</a></span>
         </li>
         {{ /each }}
     </ul>
