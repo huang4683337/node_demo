@@ -82,6 +82,23 @@ router.post('/upDateList', (req, res)=>{
     });
 })
 
+//删除
+router.get('/delete',(req, res)=>{
+    
+    let id = parseInt(req.query.id);
+    // 获取id 对应的数据
+    dataHandle.getIndex(id, (index) => {
+
+        // console.log(index);
+        dataHandle.deleteIndex(index, (err,data)=>{
+            res.redirect('/');
+            res.render('index.html',{
+                dataList:data
+            })
+        })
+    });
+})
+
 
 
 

@@ -43,17 +43,6 @@ exports.add = function (dataOne, callback) {
     });
 }
 
-// /* 删除数据 */
-exports.deleteData = function (id, callback) {
-    fs.readFile(dbPath, 'utf8', (err, data) => {
-        if (err) {
-            return callback(err);
-        }
-        let students = JSON.parse(data);
-        console.log(students);
-    })
-}
-
 // /* 修改数据 */
 exports.updateById = function (infoData, callback) {
     fs.readFile(dbPath, 'utf8', (err, data) => {
@@ -96,5 +85,43 @@ exports.getID = function(id, callback){
 
         callback(itemData)
         
+    })
+}
+
+// 获取id对应的索引
+exports.getIndex = function(id, callback){
+    fs.readFile(dbPath, 'utf8', (err, data) => {
+        if (err) {
+            return callback(err);
+        }
+
+        data = JSON.parse(data);
+        let dataList = data.data;
+        var index = dataList.findIndex((value,index)=>{
+            return value.id === id;
+        })
+        callback(index)
+        
+    })
+}
+
+//删除
+exports.deleteIndex = function(index, callback){
+    fs.readFile(dbPath, 'utf8', (err, data) => {
+        if (err) {
+            return callback(err);
+        }
+
+        data = JSON.parse(data);
+        let handleData = data.data;
+        handleData.splice(index, 1);
+
+        let dataStr = JSON.stringify(data);
+        fs.writeFile(dbPath,dataStr,(err)=>{
+            if(err){
+                return callback(err);
+            }
+            callback(null, data);
+        })
     })
 }
