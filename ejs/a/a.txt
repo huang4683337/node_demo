@@ -1,4 +1,5 @@
 var  ret = template('',{
-    name:'18',
+    name:'名字',
+    age:18
     arr:['1','2','3']
 })

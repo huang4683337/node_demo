@@ -6,7 +6,7 @@ let module = {
     }
 }
 return module.exports
-*/ 
+*/
 
 //导出单个
 /* 
@@ -25,5 +25,4 @@ return module.exports
 /* 
 node 定义了一个变量 exports = module.exports;
 */
-
 
