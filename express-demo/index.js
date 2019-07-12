@@ -8,7 +8,7 @@ server.engine('html', require('express-art-template'));
 
 
 // 使用 body-parser 中间件 可以用 res.body 获取到 post 请求数据
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 server.use(bodyParser.urlencoded({ extended: false }))
 server.use(bodyParser.json())
 
