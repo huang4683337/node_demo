@@ -26,3 +26,12 @@ return module.exports
 node 定义了一个变量 exports = module.exports;
 */
 
+ 
+
+function a(aa, bb){
+
+   bb && console.log(aa);
+
+}
+
+a(1)
