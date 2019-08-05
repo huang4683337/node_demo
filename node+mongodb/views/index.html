@@ -9,10 +9,10 @@
 </head>
 
 <body>
-    {{ include './header.html'}}
+    {{ include './_partials/header.html'}}
     <h1>{{name}}</h1>
 
-    {{ include './footer.html'}}
+    {{ include './_partials/footer.html'}}
 
 </body>
 
@@ -21,7 +21,7 @@
 
 
 <!-- 去继承layout定义的 -->
-{{ extend './layout.html' }}
+{{ extend './_layouts/layout.html' }}
 
 <!-- 填静态的坑 -->
 {{ block 'css' }}
