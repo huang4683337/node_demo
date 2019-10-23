@@ -1,0 +1,14 @@
+{
+  "name": "template_node",
+  "version": "1.0.0",
+  "description": "tenplate 在 nodeJs 中的使用",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "art-template": "^4.13.2"
+  }
+}
