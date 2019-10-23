@@ -1,4 +1,4 @@
-# 有关template的
+# 有关template的地址索引
 
 [template 直接用于 html文件](https://github.com/huang4683337/nodeJs/tree/master/ejs/template_html)
 
