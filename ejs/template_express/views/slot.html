@@ -1,0 +1,13 @@
+<!-- 去继承layout定义的 -->
+{{ extend './layout.html' }}
+
+
+
+<!-- 我要填写自己的坑 -->
+{{ block 'content' }}
+
+<div>
+    <h1>我是 slot.html 页面，我不想用默认的内容，我要在 layout 页面的插槽中填入自定义的内容</h1>
+</div>
+
+{{ /block }}
