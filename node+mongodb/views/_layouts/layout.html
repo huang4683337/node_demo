@@ -23,7 +23,7 @@
     {{ include './../_partials/header.html'}}
 
 
-    <!-- 插槽 -->
+    <!-- 留一个内容插槽 -->
     {{ block 'content'}}
     <h1>我是默认的，如果不传过来自定义的内容就用我</h1>
     {{ /block}}
@@ -32,18 +32,17 @@
     {{ include './../_partials/footer.html'}}
 
 
-    <!-- 外部脚本的坑 -->
+    <!-- 留一个外部脚本的插槽 -->
     {{ block 'scripts'}}
     <script src=""></script>
     {{ /block}}
 
+    <!-- 引入 jquery bootstrap 的 js -->
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
 </body>
 
 </html>
 
 
 
-
-<!-- 引入 jquery bootstrap 的 js -->
-<script src="/node_modules/jquery/dist/jquery.js"></script>
-<script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>

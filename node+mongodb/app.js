@@ -5,6 +5,19 @@ const path = require('path');
 // 创建服务
 const server = express();
 
+// 引入中间件
+const bodyParser = require('body-parser');
+
+// 配置中间件
+server.use(bodyParser.urlencoded({ extended: false }))
+server.use(bodyParser.json())
+
+// 引入路由文件
+const router = require('./routes/routes');
+
+// 将导出的 router 挂载到服务中
+server.use(router);
+
 // 开放静态资源
 server.use('/node_modules/', express.static(path.join(__dirname, './node_modules/')));
 

@@ -1,0 +1,15 @@
+{
+  "name": "template_html",
+  "version": "1.0.0",
+  "description": "tenplate 直接在 html 中渲染",
+  "main": "index.js",
+  "dependencies": {
+    "art-template": "^4.13.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
