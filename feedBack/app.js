@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const url = require('url');  //将url地址格式化
 
-const template = require('./../ejs/node_modules/art-template');
+const template = require('./node_modules/art-template');
 const comments = require('./static/mes.json');
 
 const server = http.createServer();
